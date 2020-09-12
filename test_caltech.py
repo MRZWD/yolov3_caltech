@@ -6,8 +6,6 @@ from utils.utils import *
 import matplotlib.pyplot as plt
 import numpy as np
 
-# TODO 文件显示不全
-
 
 def detect(save_img=False):
     imgsz = (320, 192) if ONNX_EXPORT else opt.img_size  # (320, 192) or (416, 256) or (608, 352) for (height, width)
