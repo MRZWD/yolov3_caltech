@@ -85,7 +85,6 @@ def detect(save_img=False):
                             p, s, im0 = path, '', im0s
 
                         out_path = 'G:/yolov3-master/data/caltech/code/res/my_method/set%02d/%s' % (j, dir_name)
-
                         save_path = str(Path(out_path) / Path(p).name)
 
                         s += '%gx%g ' % img.shape[2:]  # print string
@@ -109,7 +108,7 @@ def detect(save_img=False):
                                     continue
                                 else:
                                 # Write to file
-                                    print(cls)
+                                    # print(cls)
                                     xywh = xyxy2xywh2(torch.tensor(xyxy).view(1, 4)).view(-1).tolist()  # normalized xywh
                                     # save .txt
                                     with open(save_path[:save_path.rfind('.')] + '.txt', 'a+') as file:
@@ -130,9 +129,9 @@ def detect(save_img=False):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--cfg', type=str, default='cfg/yolov3.cfg', help='*.cfg path')
+    parser.add_argument('--cfg', type=str, default='cfg/yolov3-tiny-1cls.cfg', help='*.cfg path')
     parser.add_argument('--names', type=str, default='data/coco.names', help='*.names path')
-    parser.add_argument('--weights', type=str, default='weights/yolov3.weights', help='weights path')
+    parser.add_argument('--weights', type=str, default='weights/yolov3-tiny_best.pt', help='weights path')
     parser.add_argument('--source', type=str, default='data/samples', help='source')  # input file/folder, 0 for webcam
     parser.add_argument('--output', type=str, default='output', help='output folder')  # output folder
     parser.add_argument('--img-size', type=int, default=512, help='inference size (pixels)')
